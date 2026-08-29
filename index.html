@@ -105,7 +105,10 @@
             askQuestion();
         } else {
             questionContainer.style.display = "none";
-            feedback.textContent = "Perfect! Your schedule is locked in.";
+            questionContainer.style.display = "block";
+             timeQuestionText.textContent = "Perfect! Your schedule is locked in.";
+            timeInput.style.display = "none";
+            nextButton.style.display = "none";
         }
     });
 
