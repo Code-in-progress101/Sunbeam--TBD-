@@ -27,19 +27,14 @@
     <p><input type="text" id="eighthPriority" placeholder="8th"></p>
     <p><input type="text" id="ninthPriority" placeholder="9th"></p>
     <p><input type="text" id="tenthPriority" placeholder="10th"></p>
-
     <p><button id="submitToDo">Submit To-do!</button> </p>
     </div>
-
     <div id="timeContain" style="display:none;">
     <h1 id="timeQuestionText">When do you want to do this?</h1>
          <p><input type="time" id="timeInput"></p>
          <p><button id="nextQuestionBtn">Next</button></p>
     <p id="resultFeedback"></p>
     </div>
-
-
-
 <script>
     const firstToDo = document.getElementById('firstPriority');
     const secondToDo = document.getElementById('secondPriority');
@@ -51,8 +46,6 @@
     const eighthToDo = document.getElementById('eighthPriority');
     const ninthToDo = document.getElementById('ninthPriority');
     const tenthToDo = document.getElementById('tenthPriority');
-
-
     const submitButton = document.getElementById('submitToDo');
     const setupContainer = document.getElementById('toDoContain');
     const questionContainer = document.getElementById('timeContain');
@@ -60,77 +53,64 @@
     const timeInput = document.getElementById('timeInput');
     const nextButton = document.getElementById('nextQuestionBtn');
     const feedback = document.getElementById('resultFeedback');
-
     let toDoList = [];
     let schedule = [];
     let currentIndex = 0;
-
    submitButton.addEventListener('click', function() {
         toDoList = [
             firstToDo.value, secondToDo.value, thirdToDo.value, fourthToDo.value, fifthToDo.value,
             sixthToDo.value, seventhToDo.value, eighthToDo.value, ninthToDo.value, tenthToDo.value
         ];
-    
         setupContainer.style.display = "none";
         questionContainer.style.display = "block";
         askQuestion();
     });
-
     function askQuestion() {
+        if (currentIndex >= toDoList.length) {
+            showFinalTimeline();
+            return;
+        }
         const currentItem = toDoList[currentIndex];
-
+        if (currentItem.trim() === "") {
+            currentIndex++;   
+            askQuestion();    
+            return;           
+        }
         timeQuestionText.textContent = `What time do you want to ${currentItem}?`;
-        
         timeInput.value = ""; 
     }
-
-    nextButton.addEventListener('click', function() {
+     nextButton.addEventListener('click', function() {
         const selectedTime = timeInput.value;
-        
         if (selectedTime === "") {
             feedback.textContent = "Please pick a time!";
             return;
         }
         feedback.textContent = "";
-
-
         schedule.push({
             task: toDoList[currentIndex],
             time: selectedTime
         });
-
         currentIndex++;
-
-        if (currentIndex < toDoList.length) {
-            askQuestion();
-        } else {
-            timeInput.style.display = "none";
-            nextButton.style.display = "none";
-            
-            timeQuestionText.textContent = "Nice! Your schedule is now LOCKED IN!!";
-
-            let timelineHTML = "<ul style='list-style-type: none; padding: 0;'>";
-            
-                schedule.sort(function(a, b) {
-                if (a.time < b.time) return -1;
-                if (a.time > b.time) return 1;
-                return 0;
-                });
-            schedule.forEach(function(item) {
-                if (item.task.trim() !== "") {
-                    timelineHTML += `<li style='margin: 15px 0; font-size: 1.2rem;'>
-                        <strong>${item.time}</strong> — ${item.task}
-                    </li>`;
-                }
-            });
-            
-            timelineHTML += "</ul>";
-    
-            feedback.innerHTML = timelineHTML;
-        }
+        askQuestion();
     });
-
-
+     function showFinalTimeline() {
+        timeInput.style.display = "none";
+        nextButton.style.display = "none";
+        timeQuestionText.textContent = "Nice! Your schedule is now LOCKED IN!!";
+        schedule.sort(function(a, b) {
+            if (a.time < b.time) return -1;
+            if (a.time > b.time) return 1;
+            return 0;
+        });
+        let timelineHTML = "<ul style='list-style-type: none; padding: 0;'>";
+        schedule.forEach(function(item) {
+            timelineHTML += `<li style='margin: 15px 0; font-size: 1.2rem;'>
+                <strong>${item.time}</strong> — ${item.task}
+            </li>`;
+        });
+        timelineHTML += "</ul>";
+        feedback.innerHTML = timelineHTML;
+    }
 </script>
 
    
