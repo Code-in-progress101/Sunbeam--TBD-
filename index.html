@@ -15,7 +15,7 @@
 
     <p> What is YOUR perfect day? </p>
 
-    <p>Fill in your to-do list!</p>
+    <h2>Fill in your to-do list!</h2>
 
     <p><input type="text" id="firstPriority"></p>
     <p><input type="text" id="secondPriority"></p>
@@ -29,25 +29,43 @@
     <p><input type="text" id="tenthPriority"></p>
 
     <p><button id="submitToDo">Submit To-do!</button> </p>
-
+    <p id="resultFeedback"></p>
     </div>
 <script>
-    const firstToDo = document.getElementById(firstPriority);
-    const secondToDo = document.getElementById(secondPriority);
-    const thirdToDo = document.getElementById(thirdPriority);
-    const fourthToDo = document.getElementById(fourthPriority);
-    const fifthToDo = document.getElementById(fifthPriority);
-    const sixthToDo = document.getElementById(sixthPriority);
-    const seventhToDo = document.getElementById(seventhPriority);
-    const eighthToDo = document.getElementById(eighthPriority);
-    const ninthToDo = document.getElementById(ninthPriority);
-    const tenthToDo = document.getElementById(tenthPriority);
-    const submitButton = document.getElementById(submitToDo);
+    const firstToDo = document.getElementById('firstPriority');
+    const secondToDo = document.getElementById('secondPriority');
+    const thirdToDo = document.getElementById('thirdPriority');
+    const fourthToDo = document.getElementById('fourthPriority');
+    const fifthToDo = document.getElementById('fifthPriority');
+    const sixthToDo = document.getElementById('sixthPriority');
+    const seventhToDo = document.getElementById('seventhPriority');
+    const eighthToDo = document.getElementById('eighthPriority');
+    const ninthToDo = document.getElementById('ninthPriority');
+    const tenthToDo = document.getElementById('tenthPriority');
+    const submitButton = document.getElementById('submitToDo');
+    const feedback = document.getElementById('resultFeedback');
+
+    let toDoList = [];
 
     submitButton.addEventListener('click', function() {
 
-    const name = nameBox.value;
-    const color = colorBox.value;
+    savedList = [
+            firstToDo.value,
+            secondToDo.value,
+            thirdToDo.value,
+            fourthToDo.value,
+            fifthToDo.value,
+            sixthToDo.value,
+            seventhToDo.value,
+            eighthToDo.value,
+            ninthToDo.value,
+            tenthToDo.value
+        ];
+    
+    feedback.textContent = `Saved ${savedList.length} items to memory!`;
+        console.log("Your stored list looks like this:", savedList);
+
+    });
 
 
 
