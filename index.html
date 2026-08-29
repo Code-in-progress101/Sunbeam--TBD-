@@ -12,7 +12,7 @@
 <body>
     <div class="words">
     <h1> Tbh's Perfect (24-hour) Day </h1>
-    
+
     <p> What is YOUR perfect day? </p>
 
     <p>Fill in your to-do list!</p>
@@ -21,7 +21,7 @@
     <p><input type="text" id="secondPriority"></p>
     <p><input type="text" id="thirdPriority"></p>
     <p><input type="text" id="fourthPriority"></p>
-    <p><input type="text" id="fithPriority"></p>
+    <p><input type="text" id="fifthPriority"></p>
     <p><input type="text" id="sixthPriority"></p>
     <p><input type="text" id="seventhPriority"></p>
     <p><input type="text" id="eighthPriority"></p>
@@ -32,6 +32,22 @@
 
     </div>
 <script>
+    const firstToDo = document.getElementById(firstPriority);
+    const secondToDo = document.getElementById(secondPriority);
+    const thirdToDo = document.getElementById(thirdPriority);
+    const fourthToDo = document.getElementById(fourthPriority);
+    const fifthToDo = document.getElementById(fifthPriority);
+    const sixthToDo = document.getElementById(sixthPriority);
+    const seventhToDo = document.getElementById(seventhPriority);
+    const eighthToDo = document.getElementById(eighthPriority);
+    const ninthToDo = document.getElementById(ninthPriority);
+    const tenthToDo = document.getElementById(tenthPriority);
+    const submitButton = document.getElementById(submitToDo);
+
+    submitButton.addEventListener('click', function() {
+
+    const name = nameBox.value;
+    const color = colorBox.value;
 
 
 
