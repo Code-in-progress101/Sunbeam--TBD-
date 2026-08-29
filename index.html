@@ -32,7 +32,7 @@
     </div>
 
     <div id="timeContain" style="display:none;">
-    <h2 id="timeQuestionText">When do you want to do this?</h2>
+    <h1 id="timeQuestionText">When do you want to do this?</h1>
          <p><input type="time" id="timeInput"></p>
          <p><button id="nextQuestionBtn">Next</button></p>
     <p id="resultFeedback"></p>
@@ -79,7 +79,7 @@
     function askQuestion() {
         const currentItem = toDoList[currentIndex];
 
-        timeQuestionText.textContent = `What time do you want to: "${currentItem}"?`;
+        timeQuestionText.textContent = `What time do you want to ${currentItem}?`;
         
         timeInput.value = ""; 
     }
@@ -106,7 +106,7 @@
         } else {
             questionContainer.style.display = "none";
             questionContainer.style.display = "block";
-             timeQuestionText.textContent = "Perfect! Your schedule is locked in.";
+             timeQuestionText.textContent = "Perfect! Your schedule is LOCKED in.";
             timeInput.style.display = "none";
             nextButton.style.display = "none";
         }
