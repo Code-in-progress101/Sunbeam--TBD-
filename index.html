@@ -104,11 +104,24 @@
         if (currentIndex < toDoList.length) {
             askQuestion();
         } else {
-            questionContainer.style.display = "none";
-            questionContainer.style.display = "block";
-             timeQuestionText.textContent = "Perfect! Your schedule is LOCKED in.";
             timeInput.style.display = "none";
             nextButton.style.display = "none";
+            
+            timeQuestionText.textContent = "Nice! Your schedule is now LOCKED IN!!";
+
+            let timelineHTML = "<ul style='list-style-type: none; padding: 0;'>";
+            
+            schedule.forEach(function(item) {
+                if (item.task.trim() !== "") {
+                    timelineHTML += `<li style='margin: 15px 0; font-size: 1.2rem;'>
+                        <strong>${item.time}</strong> — ${item.task}
+                    </li>`;
+                }
+            });
+            
+            timelineHTML += "</ul>";
+    
+            feedback.innerHTML = timelineHTML;
         }
     });
 
