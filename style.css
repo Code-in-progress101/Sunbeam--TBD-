@@ -1,8 +1,9 @@
-.topImg img {
-    width: 100px;
-}
 .words {
     text-align: center;
     color: #DB1619;
     box
+}
+
+.words {
+   background: conic-gradient(from 285deg, #dac5b3 0.000deg, #acb6a4 90.000deg, #799d8d 180.000deg, #567f70 270.000deg, #515f4f 360.000deg);
 }
