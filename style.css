@@ -7,4 +7,15 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    font-family: "Comfortaa", sans-serif;
+}
+input {
+    border-radius: 9px;
+    padding: 0.5%;
+    width: 15%;
+    border: 5px dotted #FCFCBB;
+    font-family: "Comfortaa", sans-serif;
+}
+h1 {
+    font-weight: 700;
 }
