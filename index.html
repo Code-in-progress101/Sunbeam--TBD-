@@ -13,7 +13,7 @@
     <div class="words">
     <h1> Tbh's Perfect (24-hour) Day </h1>
     <h3> What is YOUR perfect day? </h3>
-    <p>Hint Hint: you're planning for THIS day to be better RIGHT NOW!</p>
+    <p>Hint hint: you're planning for THIS day to be better RIGHT NOW!</p>
     <h2>Fill in your to-do list!</h2>
 </div>
 <div id="toDoContain">
@@ -71,10 +71,46 @@
             firstToDo.value, secondToDo.value, thirdToDo.value, fourthToDo.value, fifthToDo.value,
             sixthToDo.value, seventhToDo.value, eighthToDo.value, ninthToDo.value, tenthToDo.value
         ];
-        
-    feedback.textContent = `Here's yur list bro ${toDoList}`;
     
+        setupContainer.style.display = "none";
+        questionContainer.style.display = "block";
+        askQuestion();
     });
+
+    function askQuestion() {
+        const currentItem = savedList[currentIndex];
+
+        timeQuestionText.textContent = `What time do you want to: "${currentItem}"?`;
+        
+        timeInput.value = ""; 
+    }
+
+    nextButton.addEventListener('click', function() {
+        const selectedTime = timeInput.value;
+        
+        if (selectedTime === "") {
+            feedback.textContent = "Please pick a time!";
+            return;
+        }
+        feedback.textContent = "";
+
+
+        schedule.push({
+            task: savedList[currentIndex],
+            time: selectedTime
+        });
+
+        currentIndex++;
+
+        if (currentIndex < savedList.length) {
+            askQuestion();
+        } else {
+            questionContainer.style.display = "none";
+            feedback.textContent = "Perfect! Your schedule is locked in.";
+            console.log("Final compiled schedule:", schedule);
+        }
+    });
+
 
 </script>
 
