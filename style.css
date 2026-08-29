@@ -19,3 +19,11 @@ input {
 h1 {
     font-weight: 700;
 }
+button {
+     border-radius: 9px;
+    padding: 0.5%;
+    width: 5%;
+    border: 2px dotted #FCFCBB;
+    font-family: "Comfortaa", sans-serif;
+}
+}
