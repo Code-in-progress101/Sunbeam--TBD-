@@ -12,34 +12,31 @@
 <body>
     <div class="words">
     <h1> Tbh's Perfect (24-hour) Day </h1>
+    
     <p> What is YOUR perfect day? </p>
-    </div>
 
     <p>Fill in your to-do list!</p>
-    
-    <input type="text" id="toDoListAnswerOne" placeholder="Highest Priority!">
-    
-    <button id="submitBtn">Done!</button>
-    
 
-    <p id="displayText"></p>
+    <p><input type="text" id="firstPriority"></p>
+    <p><input type="text" id="secondPriority"></p>
+    <p><input type="text" id="thirdPriority"></p>
+    <p><input type="text" id="fourthPriority"></p>
+    <p><input type="text" id="fithPriority"></p>
+    <p><input type="text" id="sixthPriority"></p>
+    <p><input type="text" id="seventhPriority"></p>
+    <p><input type="text" id="eighthPriority"></p>
+    <p><input type="text" id="ninthPriority"></p>
+    <p><input type="text" id="tenthPriority"></p>
 
-    <script>
-        const inputField = document.getElementById('toDoListAnswerOne');
-        const submitButton = document.getElementById('submitBtn');
-        const textOutput = document.getElementById('displayText');
+    <p><button id="submitToDo">Submit To-do!</button> </p>
+
+    </div>
+<script>
 
 
-        submitButton.addEventListener('click', function() {
 
-        const enteredText = inputField.value;
-    
-        if (enteredText.trim() !== "") {
-        textOutput.textContent = "You typed: " + enteredText;
-        } else {
-        textOutput.textContent = "Please type something first!";
-        }
-        });
-    </script>
+</script>
+
+   
 </body>
 </html>
