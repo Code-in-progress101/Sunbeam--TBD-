@@ -15,5 +15,34 @@
     <p> What is YOUR perfect day? </p>
     </div>
 
+    <p>Fill in your to-do list!</p>
+    
+
+    <input type="text" id="userInput" placeholder="Type something here...">
+    
+
+    <button id="submitBtn">Display Text</button>
+    
+
+    <p id="displayText"></p>
+
+
+    <script>
+        const inputField = document.getElementById('userInput');
+        const submitButton = document.getElementById('submitBtn');
+        const textOutput = document.getElementById('displayText');
+
+
+        submitButton.addEventListener('click', function() {
+
+        const enteredText = inputField.value;
+    
+        if (enteredText.trim() !== "") {
+        textOutput.textContent = "You typed: " + enteredText;
+        } else {
+        textOutput.textContent = "Please type something first!";
+        }
+        });
+    </script>
 </body>
 </html>
