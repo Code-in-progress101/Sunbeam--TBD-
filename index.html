@@ -12,10 +12,11 @@
 <body>
     <div class="words">
     <h1> Tbh's Perfect (24-hour) Day </h1>
-
-    <p> What is YOUR perfect day? </p>
-
+    <h3> What is YOUR perfect day? </h3>
+    <p>Hint Hint: you're planning for THIS day to be better RIGHT NOW!</p>
     <h2>Fill in your to-do list!</h2>
+</div>
+<div id="toDoContain">
 
     <p><input type="text" id="firstPriority" placeholder="1st"></p>
     <p><input type="text" id="secondPriority" placeholder="2nd"></p>
@@ -29,18 +30,14 @@
     <p><input type="text" id="tenthPriority" placeholder="10th"></p>
 
     <p><button id="submitToDo">Submit To-do!</button> </p>
-    <p id="resultFeedback"></p>
     </div>
 
-
-
-
-
-
-
-
-
-
+    <div id="timeContain" style="display:none;">
+    <h2 id="timeQuestionText">When do you want to do this?</h2>
+         <p><input type="time" id="timeInput"></p>
+         <p><button id="nextQuestionBtn">Next</button></p>
+    <p id="resultFeedback"></p>
+    </div>
 
 
 
@@ -55,26 +52,26 @@
     const eighthToDo = document.getElementById('eighthPriority');
     const ninthToDo = document.getElementById('ninthPriority');
     const tenthToDo = document.getElementById('tenthPriority');
+
+
     const submitButton = document.getElementById('submitToDo');
+    const setupContainer = document.getElementById('setupContainer');
+    const questionContainer = document.getElementById('questionContainer');
+    const timeQuestionText = document.getElementById('timeQuestionText');
+    const timeInput = document.getElementById('timeInput');
+    const nextButton = document.getElementById('nextQuestionBtn');
     const feedback = document.getElementById('resultFeedback');
 
     let toDoList = [];
+    let schedule = [];
+    let currentIndex = 0;
 
-    submitButton.addEventListener('click', function() {
-
-    toDoList = [
-            firstToDo.value,
-            secondToDo.value,
-            thirdToDo.value,
-            fourthToDo.value,
-            fifthToDo.value,
-            sixthToDo.value,
-            seventhToDo.value,
-            eighthToDo.value,
-            ninthToDo.value,
-            tenthToDo.value
+   submitButton.addEventListener('click', function() {
+        savedList = [
+            firstToDo.value, secondToDo.value, thirdToDo.value, fourthToDo.value, fifthToDo.value,
+            sixthToDo.value, seventhToDo.value, eighthToDo.value, ninthToDo.value, tenthToDo.value
         ];
-    
+        
     feedback.textContent = `Here's yur list bro ${toDoList}`;
     
     });
