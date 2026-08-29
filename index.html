@@ -31,6 +31,19 @@
     <p><button id="submitToDo">Submit To-do!</button> </p>
     <p id="resultFeedback"></p>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     const firstToDo = document.getElementById('firstPriority');
     const secondToDo = document.getElementById('secondPriority');
@@ -49,7 +62,7 @@
 
     submitButton.addEventListener('click', function() {
 
-    savedList = [
+    toDoList = [
             firstToDo.value,
             secondToDo.value,
             thirdToDo.value,
@@ -62,12 +75,9 @@
             tenthToDo.value
         ];
     
-    feedback.textContent = `Saved ${savedList.length} items to memory!`;
-        console.log("Your stored list looks like this:", savedList);
-
+    feedback.textContent = `Here's yur list bro ${toDoList}`;
+    
     });
-
-
 
 </script>
 
