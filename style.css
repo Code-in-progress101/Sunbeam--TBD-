@@ -1,10 +1,6 @@
 .topImg img {
     width: 100px;
 }
-body {
+.words header {
     text-align: center;
-    font-family: comfo
-    background-color: rgba();
-    -webkit-box-shadow: 24px 22px 43px 5px rgba(0,0,0,0.79); 
-    box-shadow: 24px 22px 43px 5px rgba(0,0,0,0.79);
 }
