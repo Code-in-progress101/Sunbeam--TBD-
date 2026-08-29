@@ -14,10 +14,9 @@
     <h1> Tbh's Perfect (24-hour) Day </h1>
     <h3> What is YOUR perfect day? </h3>
     <p>Hint hint: you're planning for THIS day to be better RIGHT NOW!</p>
-    <h2>Fill in your to-do list!</h2>
 </div>
 <div id="toDoContain">
-
+<h2>Fill in your to-do list!</h2>
     <p><input type="text" id="firstPriority" placeholder="1st"></p>
     <p><input type="text" id="secondPriority" placeholder="2nd"></p>
     <p><input type="text" id="thirdPriority" placeholder="3rd"></p>
@@ -55,8 +54,8 @@
 
 
     const submitButton = document.getElementById('submitToDo');
-    const setupContainer = document.getElementById('setupContainer');
-    const questionContainer = document.getElementById('questionContainer');
+    const setupContainer = document.getElementById('toDoContain');
+    const questionContainer = document.getElementById('timeContain');
     const timeQuestionText = document.getElementById('timeQuestionText');
     const timeInput = document.getElementById('timeInput');
     const nextButton = document.getElementById('nextQuestionBtn');
@@ -67,7 +66,7 @@
     let currentIndex = 0;
 
    submitButton.addEventListener('click', function() {
-        savedList = [
+        toDoList = [
             firstToDo.value, secondToDo.value, thirdToDo.value, fourthToDo.value, fifthToDo.value,
             sixthToDo.value, seventhToDo.value, eighthToDo.value, ninthToDo.value, tenthToDo.value
         ];
@@ -78,7 +77,7 @@
     });
 
     function askQuestion() {
-        const currentItem = savedList[currentIndex];
+        const currentItem = toDoList[currentIndex];
 
         timeQuestionText.textContent = `What time do you want to: "${currentItem}"?`;
         
@@ -96,18 +95,17 @@
 
 
         schedule.push({
-            task: savedList[currentIndex],
+            task: toDoList[currentIndex],
             time: selectedTime
         });
 
         currentIndex++;
 
-        if (currentIndex < savedList.length) {
+        if (currentIndex < toDoList.length) {
             askQuestion();
         } else {
             questionContainer.style.display = "none";
             feedback.textContent = "Perfect! Your schedule is locked in.";
-            console.log("Final compiled schedule:", schedule);
         }
     });
 
